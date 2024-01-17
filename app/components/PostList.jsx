@@ -4,7 +4,7 @@ const PostList = ({ posts }) => {
   return (
     <div className='grid grid-cols-3  gap-4 place-items-start'>
       {
-        posts.map(post => (
+        posts?.map(post => (
           <Post key={post.id} post={post} />
         ))
 

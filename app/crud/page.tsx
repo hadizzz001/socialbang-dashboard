@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 
 
-const Crud = async () => {
+const Crud = () => {
 
     const [allTemp, setTemp] = useState<any>()
 
