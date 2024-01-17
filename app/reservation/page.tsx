@@ -17,7 +17,7 @@ const page = () => {
     const a = async () => {
         const b = await fetchTemp1()
         console.log(allTemp);
-        
+
         setTemp(b)
     }
     useEffect(() => {
@@ -25,27 +25,28 @@ const page = () => {
     }, [])
 
 
-    const handleDeletePost = (id) => {
-
-        const confirmed = window.confirm('Are you sure you want to delete?');
-
-        if (confirmed) {
-            axios
-                .delete(`/api/order/${id}`)
-                .then((res: any) => {
-                    console.log(res);
-                })
-                .catch((err: any) => {
-                    console.log(err);
-                })
-                .finally(() => {
-                    location.replace('/reservation')
-                });
-        } else { }
-
-    }
 
 
+
+    const calculateFinalTotal = (allTemp1) => {
+        if (allTemp1) {
+          const result = allTemp1.reduce(
+            (acc, post) => {
+              const price = parseInt(post.price);
+              const qty = post.quantity;
+              acc.totalPrice += isNaN(price) || isNaN(qty) ? 0 : price * qty;
+              acc.totalItems += isNaN(qty) ? 0 : qty;
+              return acc;
+            },
+            { totalPrice: 0, totalItems: 0 }
+          );
+    
+          return result;
+        }
+    
+        return { totalPrice: 0, totalItems: 0 };
+      };
+ 
 
 
 
@@ -57,21 +58,17 @@ const page = () => {
     return (
         <>
             <Link href='/dashboard'>
-                <button type="button" className="text-white rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2" style={{ background: "#6c3429" }}>
+                <button type="button" className="text-white rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2" style={{ background: "#ea6a2b" }}>
                     <img src="https://res.cloudinary.com/dixtwo21g/image/upload/v1699388330/next/dmhmwrpyxkjzjzk5iurq.png" width={14} style={{ color: "white" }} alt="" />
                 </button>
                 Return Home
             </Link>
-            <table className="table table-striped">
+            <table className="table table-striped container">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Message</th>
+                        <th scope="col">Order #</th>
+                        <th scope="col">Total Amount</th>
+                        <th scope="col">Order Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -81,17 +78,13 @@ const page = () => {
                         allTemp && allTemp?.length > 0 ? (
                             allTemp.map((post: any, index: any) => (
                                 <tr>
-                                    <td>{index + 1}</td>
-                                    <td>{post.firstname}</td>
-                                    <td>{post.lastname}</td>
-                                    <td>{post.email}</td>
-                                    <td>{post.phone}</td>
-                                    <td>{post.type}</td>
-                                    <td>{post.message}</td>
-                                    <td><button onClick={() => handleDeletePost(post.id)} className="text-red-700 mr-3">Delete</button></td>
+                                    <td>{post.id}</td>
+                                    <td>${calculateFinalTotal(post.info).totalPrice}</td>
+                                    <td>{post.createdAt}</td>
+                                    <td><Link className="text-blue-700 mr-3" href={`/order?id=${post.id}`}>View</Link></td>
                                 </tr>
                             ))
-                            ) : (
+                        ) : (
                             <div className='home___error-container'>
                                 <h2 className='text-black text-xl dont-bold'>...</h2>
 

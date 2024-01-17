@@ -11,10 +11,12 @@ datasource db {
 }
 
 model Post {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
-  title String?
-  description String?
-  img String?
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  img String[]
+  price String
+  category String
   type String
 }
 
@@ -23,10 +25,10 @@ model Post {
 
 model Order {
   id  String @id @default(auto()) @map("_id") @db.ObjectId
-  firstname String?
-  lastname String? 
-  email String?
-  phone String?
-  type String? @default("None")
-  message String? @default("None")
+  user Json
+  info Json
+  createdAt String
 }
+
+
+ 

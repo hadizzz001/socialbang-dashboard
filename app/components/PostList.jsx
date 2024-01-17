@@ -2,14 +2,14 @@ import Post from '../components/Post'
 
 const PostList = ({ posts }) => {
   return (
-    <ul>
+    <div className='grid grid-cols-3  gap-4 place-items-start'>
       {
         posts.map(post => (
           <Post key={post.id} post={post} />
         ))
 
       }
-    </ul>
+    </div>
   )
 }
 

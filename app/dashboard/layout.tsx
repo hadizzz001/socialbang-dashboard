@@ -40,7 +40,7 @@ export default function DashboardLayout({
     <main>
       <header>
         <Link href='/dashboard'>
-          <button type="button" className="text-white rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2" style={{background:"#6c3429"}}>
+          <button type="button" className="text-white rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2" style={{background:"#ea6a2b"}}>
           <img src="https://res.cloudinary.com/dixtwo21g/image/upload/v1699388330/next/dmhmwrpyxkjzjzk5iurq.png" width={14} style={{ color: "white" }} alt="" />
           </button>
           Return Home
