@@ -144,17 +144,21 @@ const page = () => {
                                                     <tr>
                                                         {showDetails[index] && (
                                                             <td className="py-4" style={{ maxWidth: "80px" }}>
-                                                                {Object.keys(temp.additionalInfo).map((key) => (
-                                                                    <li key={key}>
-                                                                        {/* {key.charAt(0).toUpperCase() + key.slice(1)}: {temp.additionalInfo[key]} */}
-                                                                        {key === 'pdf' ? (
-                                                                            <Link target='_blank' href={`${temp.additionalInfo[key]}`}>View PDF</Link>
-                                                                        ) : (
-                                                                            `${key.charAt(0).toUpperCase() + key.slice(1)}: ${temp.additionalInfo[key]}`
-                                                                        )}
-                                                                    </li>
-                                                                ))}
-                                                            </td>
+                                                            {Object.keys(temp.additionalInfo).map((key) => (
+                                                                <li key={key}>
+                                                                    {key === 'imgz' ? (
+                                                                        <span>Front cover: <Link target='_blank' href={temp.additionalInfo[key]}>View</Link></span>
+                                                                    ) : key === 'imgzz' ? (
+                                                                        <span>Back cover: <Link target='_blank' href={temp.additionalInfo[key]}>View</Link></span>
+                                                                    ) : key === 'pdf' ? (
+                                                                        <Link target='_blank' href={temp.additionalInfo[key]}>View PDF</Link>
+                                                                    ) : (
+                                                                        `${key.charAt(0).toUpperCase() + key.slice(1)}: ${temp.additionalInfo[key]}`
+                                                                    )}
+                                                                </li>
+                                                            ))}
+                                                        </td>
+                                                        
                                                         )}
                                                     </tr>
 
@@ -195,23 +199,23 @@ const page = () => {
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>State</span>
-                                            <span>{allTemp1.user.country}</span>
+                                            <span>{allTemp1.user.state}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>City</span>
-                                            <span>{allTemp1.user.city}</span>
+                                            <span>{allTemp1.user.suburb}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>address</span>
-                                            <span>{allTemp1.user.address}</span>
-                                        </div>
-                                        <div className="flex justify-between mb-2">
-                                            <span>Street</span>
                                             <span>{allTemp1.user.street}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
+                                            <span>Country</span>
+                                            <span>{allTemp1.user.country}</span>
+                                        </div>
+                                        <div className="flex justify-between mb-2">
                                             <span>ZIP Code</span>
-                                            <span>{allTemp1.user.zip}</span>
+                                            <span>{allTemp1.user.postcode}</span>
                                         </div>
                                         <hr className="my-2" />
                                         <div className="flex justify-between mb-2">
