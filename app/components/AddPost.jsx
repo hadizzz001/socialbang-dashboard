@@ -74,9 +74,14 @@ const AddPost = () => {
   };
 
   const handleChange = (e) => {
-    if (e.target.name == "price") {
-      const numericValue = e.target.value.replace(/[^0-9]/g, '');
-      setValue1(numericValue);
+    if (e.target.name == "price") { 
+      // Allow digits and one dot
+      const numericValue = e.target.value.replace(/[^0-9.]/g, '');
+      // Ensure only one dot is allowed
+      const validNumericValue = numericValue.includes('.')
+        ? numericValue.split('.').slice(0, 2).join('.')
+        : numericValue;
+      setValue1(validNumericValue);
     }
 
     const name = e.target.name;
