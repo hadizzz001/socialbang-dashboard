@@ -220,7 +220,7 @@ const page = () => {
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span className="font-semibold">Total Amount</span>
-                                            <span className="font-semibold">${finalTotal.totalPrice}</span>
+                                            <span className="font-semibold">${finalTotal.totalPrice + allTemp1.info.shipping}</span>
                                         </div>
                                     </>
                                 ) : (
