@@ -28,8 +28,11 @@ const page = () => {
         setShowDetails(Array(b.info.length).fill(false));
     }
     useEffect(() => {
-        a()
+        a() 
     }, [])
+
+
+ 
 
 
 
@@ -42,25 +45,14 @@ const page = () => {
     };
 
 
-
-    // const calculateFinalTotal = () => {
-    //     if (allTemp1 && allTemp1.info) {
-    //         return allTemp1.info.reduce((total, post) => {
-    //             const price = parseInt(post.price);
-    //             const qty = post.quantity;
-    //             return total + (isNaN(price) || isNaN(qty) ? 0 : price * qty);
-    //         }, 0);
-    //     }
-    //     return 0;
-    // };
-
+ 
 
 
 
 
     const calculateFinalTotal = () => {
-        if (allTemp1 && allTemp1.info) {
-            const result = allTemp1.info.reduce(
+        if (allTemp1 && allTemp1.user) {
+            const result = allTemp1.user.reduce(
                 (acc, post) => {
                     const price = parseInt(post.price);
                     const qty = post.quantity;
@@ -115,7 +107,7 @@ const page = () => {
                                     </thead>
                                     <tbody>
                                         {allTemp1 && Object?.keys(allTemp1).length > 0 ? (
-                                            allTemp1.info.map((temp, index) => (
+                                            allTemp1.user.map((temp, index) => (
 
                                                 <>
                                                     <tr>
@@ -187,35 +179,39 @@ const page = () => {
                                     <>
                                         <div className="flex justify-between mb-2">
                                             <span>Name</span>
-                                            <span>{allTemp1.user.fname} {allTemp1.user.lname}</span>
+                                            <span>{allTemp1.info.fname} {allTemp1.user.lname}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>Phone</span>
-                                            <span>{allTemp1.user.phone}</span>
+                                            <span>{allTemp1.info.phone}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>Email</span>
-                                            <span>{allTemp1.user.email}</span>
+                                            <span>{allTemp1.info.email}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>State</span>
-                                            <span>{allTemp1.user.state}</span>
+                                            <span>{allTemp1.info.state}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>City</span>
-                                            <span>{allTemp1.user.suburb}</span>
+                                            <span>{allTemp1.info.suburb}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>address</span>
-                                            <span>{allTemp1.user.street}</span>
+                                            <span>{allTemp1.info.street}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>Country</span>
-                                            <span>{allTemp1.user.country}</span>
+                                            <span>{allTemp1.info.country}</span>
                                         </div>
                                         <div className="flex justify-between mb-2">
                                             <span>ZIP Code</span>
-                                            <span>{allTemp1.user.postcode}</span>
+                                            <span>{allTemp1.info.postcode}</span>
+                                        </div>
+                                        <div className="flex justify-between mb-2">
+                                            <span>Shipping</span>
+                                            <span>${allTemp1.info.shipping}</span>
                                         </div>
                                         <hr className="my-2" />
                                         <div className="flex justify-between mb-2">
