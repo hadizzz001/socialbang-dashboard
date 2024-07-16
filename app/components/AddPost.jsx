@@ -104,7 +104,8 @@ const AddPost = () => {
   const getOptionsForSecondSelect = (firstSelectValue) => {
     switch (firstSelectValue) {
       case 'Cards':
-        return ['--Choose Type--', 'Business Cards', 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
+        // return ['--Choose Type--', 'Business Cards', 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
+        return ['--Choose Type--', 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
       case 'Tags':
         return ['--Choose Type--', 'Pets Tags', 'Reviews Tags', 'Social Media Tags', 'Medical ID Tags'];
       case 'Stands':

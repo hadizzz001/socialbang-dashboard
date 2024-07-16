@@ -91,7 +91,8 @@ const Post = ({ post }) => {
   const getOptionsForSecondSelect = (firstSelectValue) => {
     switch (firstSelectValue) {
       case 'Cards':
-        return ['Business Cards', 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
+        // return ['Business Cards', 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
+        return [ 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
       case 'Tags':
         return ['Pets Tags', 'Reviews Tags', 'Social Media Tags', 'Medical ID Tags'];
       case 'Stands':
@@ -234,7 +235,16 @@ const Post = ({ post }) => {
           </form>
         </Modal>
 
-        <button onClick={() => setOpenModalDelete(true)} className="text-red-700 mr-3">Delete</button>
+
+        {post.id !== "658545e26a1e745f48b9f156" && (
+        <button
+          onClick={() => setOpenModalDelete(true)}
+          className="text-red-700 mr-3"
+        >
+          Delete
+        </button>
+      )}
+         
 
         <Modal modalOpen={openModalDelete} setModalOpen={setOpenModalDelete}>
           <h1 className="text-2xl pb-3">
