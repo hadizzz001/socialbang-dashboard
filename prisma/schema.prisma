@@ -16,6 +16,8 @@ model Post {
   description String
   img String[]
   price String
+  price2 String?
+  price3 String?
   category String
   type String
 }

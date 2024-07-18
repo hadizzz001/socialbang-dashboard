@@ -136,13 +136,13 @@ const AddPost = () => {
   return (
     <div>
      
-      <button
+      {/* <button
         onClick={() => setModalOpen(true)}
         className="text-white p-3 cursor-pointer"
         style={{ background: "#ea6a2b" }}
       >
         Add New Item
-      </button>
+      </button> */}
 
       <button
         onClick={() => push("/reservation")}

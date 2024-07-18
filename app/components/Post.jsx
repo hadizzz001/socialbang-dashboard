@@ -132,7 +132,11 @@ const Post = ({ post }) => {
  
 
 
-
+  useEffect(() => { 
+    if (!(imgs.includes(""))){ 
+      setPostToEdit((prevState) => ({ ...prevState, img: imgs }));
+    } 
+  }, [imgs])
 
 
 
@@ -151,7 +155,20 @@ const Post = ({ post }) => {
       <h1 className="text-2xl font-bold">Title : {post.title}</h1>
       <b>Category : {post.category}</b><br />
       <b>Type : {post.type}</b><br />
-      <b>Price($) : {post.price}</b><br />
+      {post.id === "658545e26a1e745f48b9f156" ? (
+        <div>
+          <b>White card - Name($) : {post.price}</b><br />
+          <b>White card - Logo($) : {post.price2}</b><br />
+          <b>Full Colour card($) : {post.price3}</b><br />
+        </div>
+      ) : post.id === "65855d8e6834bc74637db118" ? (
+        <div>
+          <b>White($) : {post.price}</b><br />
+          <b>Black($) : {post.price2}</b><br />
+        </div>
+      ) : (
+        <b>Price($) : {post.price}</b>
+      )}
       <p style={{ width: "150px", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>{post.description}</p><br />
 
       <img src={post.img[0]} width={50} />
@@ -190,15 +207,68 @@ const Post = ({ post }) => {
               required
             />
 
-            <input
-              type="text"
-              placeholder="Price"
-              name="price"
-              className="w-full p-2 my-3"
-              value={postToEdit.price || value1}
-              onChange={handleChange}
-              required
-            />
+{postToEdit.id === "658545e26a1e745f48b9f156" ? (
+        <>
+          <input
+            type="text"
+            placeholder="White card - Name Price"
+            name="price"
+            className="w-full p-2 my-3"
+            value={postToEdit.price || ''}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="White card - Logo Price"
+            name="price2"
+            className="w-full p-2 my-3"
+            value={postToEdit.price2 || ''}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Full Colour Card Price"
+            name="price3"
+            className="w-full p-2 my-3"
+            value={postToEdit.price3 || ''}
+            onChange={handleChange}
+            required
+          />
+        </>
+      ) : postToEdit.id === "65855d8e6834bc74637db118" ? (
+        <>
+          <input
+            type="text"
+            placeholder="White card - Name Price"
+            name="price"
+            className="w-full p-2 my-3"
+            value={postToEdit.price || ''}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="White card - Logo Price"
+            name="price2"
+            className="w-full p-2 my-3"
+            value={postToEdit.price2 || ''}
+            onChange={handleChange}
+            required
+          />
+        </>
+      ) : (
+        <input
+          type="text"
+          placeholder="Price"
+          name="price"
+          className="w-full p-2 my-3"
+          value={postToEdit.price || ''}
+          onChange={handleChange}
+          required
+        />
+      )}
 
 
 
@@ -236,17 +306,17 @@ const Post = ({ post }) => {
         </Modal>
 
 
-        {post.id !== "658545e26a1e745f48b9f156" && (
+        {/* {post.id !== "658545e26a1e745f48b9f156" && (
         <button
           onClick={() => setOpenModalDelete(true)}
           className="text-red-700 mr-3"
         >
           Delete
         </button>
-      )}
+      )} */}
          
 
-        <Modal modalOpen={openModalDelete} setModalOpen={setOpenModalDelete}>
+        {/* <Modal modalOpen={openModalDelete} setModalOpen={setOpenModalDelete}>
           <h1 className="text-2xl pb-3">
             Are you sure, You want to delete this post?
           </h1>
@@ -265,7 +335,7 @@ const Post = ({ post }) => {
               No
             </button>
           </div>
-        </Modal>
+        </Modal> */}
 
 
 
