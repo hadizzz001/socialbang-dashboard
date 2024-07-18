@@ -93,12 +93,12 @@ const Post = ({ post }) => {
       case 'Cards':
         // return ['Business Cards', 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
         return [ 'Reviews Cards', 'Social Media Cards', 'Medical ID Cards'];
-      case 'Tags':
-        return ['Pets Tags', 'Reviews Tags', 'Social Media Tags', 'Medical ID Tags'];
+      // case 'Tags':
+      //   return ['Pets Tags', 'Reviews Tags', 'Social Media Tags', 'Medical ID Tags'];
       case 'Stands':
         return ['Review Stands', 'Menu Stands'];
-      case 'Stickers':
-        return ['Business Cards Stickers', 'Reviews Stickers', 'Social Media Stickers', 'Medical ID Stickers'];
+      // case 'Stickers':
+      //   return ['Business Cards Stickers', 'Reviews Stickers', 'Social Media Stickers', 'Medical ID Stickers'];
       default:
         return [];
     }
@@ -272,7 +272,7 @@ const Post = ({ post }) => {
 
 
 
-            <select name="category" value={firstSelectValue} onChange={handleFirstSelectChange} style={{ width: "100%", height: "40px" }}  >
+            {/* <select name="category" value={firstSelectValue} onChange={handleFirstSelectChange} style={{ width: "100%", height: "40px" }}  >
 
               <option value="Cards">Cards</option>
               <option value="Tags">Tags</option>
@@ -280,7 +280,7 @@ const Post = ({ post }) => {
               <option value="Stickers">Stickers</option>
             </select>
 
-            <br />
+            <br /> */}
 
 
             {active1 && ( 
