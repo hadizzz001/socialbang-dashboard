@@ -18,6 +18,8 @@ model Post {
   price String
   price2 String?
   price3 String?
+  price4 String?
+  price5 String?
   category String
   type String
 }

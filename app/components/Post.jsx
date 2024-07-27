@@ -157,17 +157,23 @@ const Post = ({ post }) => {
       <b>Type : {post.type}</b><br />
       {post.id === "658545e26a1e745f48b9f156" ? (
         <div>
-          <b>White card - Name($) : {post.price}</b><br />
-          <b>White card - Logo($) : {post.price2}</b><br />
-          <b>Full Colour card($) : {post.price3}</b><br />
+          <b>White card + Name($) : {post.price}</b><br />
+          <b>Black card + Name($) : {post.price2}</b><br />
+          <b>White card + Logo($) : {post.price3}</b><br />
+          <b>Black card + Logo($) : {post.price4}</b><br />
+          <b>Full Colour card($) : {post.price5}</b><br />
         </div>
       ) : post.id === "65855d8e6834bc74637db118" ? (
         <div>
           <b>White($) : {post.price}</b><br />
           <b>Black($) : {post.price2}</b><br />
+          <b>Full Colour($) : {post.price3}</b><br />
         </div>
       ) : (
-        <b>Price($) : {post.price}</b>
+        <div>
+        <b>White($) : {post.price}</b><br />
+        <b>Black($) : {post.price2}</b><br />
+        </div>
       )}
       <p style={{ width: "150px", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>{post.description}</p><br />
 
@@ -220,7 +226,7 @@ const Post = ({ post }) => {
           />
           <input
             type="text"
-            placeholder="White card - Logo Price"
+            placeholder="Black card - Name Price"
             name="price2"
             className="w-full p-2 my-3"
             value={postToEdit.price2 || ''}
@@ -229,10 +235,28 @@ const Post = ({ post }) => {
           />
           <input
             type="text"
-            placeholder="Full Colour Card Price"
+            placeholder="White card - Logo Price"
             name="price3"
             className="w-full p-2 my-3"
             value={postToEdit.price3 || ''}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Black card - Logo Price"
+            name="price4"
+            className="w-full p-2 my-3"
+            value={postToEdit.price4 || ''}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Full Colour Card Price"
+            name="price5"
+            className="w-full p-2 my-3"
+            value={postToEdit.price5 || ''}
             onChange={handleChange}
             required
           />
@@ -241,7 +265,7 @@ const Post = ({ post }) => {
         <>
           <input
             type="text"
-            placeholder="White card - Name Price"
+            placeholder="Black"
             name="price"
             className="w-full p-2 my-3"
             value={postToEdit.price || ''}
@@ -250,24 +274,44 @@ const Post = ({ post }) => {
           />
           <input
             type="text"
-            placeholder="White card - Logo Price"
+            placeholder="White"
             name="price2"
             className="w-full p-2 my-3"
             value={postToEdit.price2 || ''}
             onChange={handleChange}
             required
           />
+          <input
+            type="text"
+            placeholder="Full Colour"
+            name="price3"
+            className="w-full p-2 my-3"
+            value={postToEdit.price3 || ''}
+            onChange={handleChange}
+            required
+          />
         </>
       ) : (
+        <>
         <input
           type="text"
-          placeholder="Price"
+          placeholder="White Price"
           name="price"
           className="w-full p-2 my-3"
           value={postToEdit.price || ''}
           onChange={handleChange}
           required
         />
+        <input
+          type="text"
+          placeholder="Black Price"
+          name="price2"
+          className="w-full p-2 my-3"
+          value={postToEdit.price2 || ''}
+          onChange={handleChange}
+          required
+        />
+        </>
       )}
 
 
